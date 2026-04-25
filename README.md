@@ -94,7 +94,7 @@ Start the frontend development server:
 npm run dev
 ```
 
-The application should now be running at `http://localhost:5173` (or the port specified by Vite).
+The application should now be running at `http://localhost:5173`. 
 
 ---
 
@@ -118,14 +118,3 @@ RecipeNest/
     └── index.html            # Entry HTML
 ```
 
----
-
-## License
-This project is licensed under the **ISC License**.
-
----
-
-## Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
