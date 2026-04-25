@@ -22,7 +22,7 @@ export default function Home() {
       ]);
       setRecipes(recipeRes.data);
       setChefs(chefRes.data);
-      setCategories(['All', ...catRes.data.map(c => c.name)]);
+      setCategories(['All', ...catRes.data.map(c => c.title)]);
     } catch (err) {
       console.error('Error fetching data:', err);
     } finally {
@@ -56,10 +56,10 @@ export default function Home() {
               <div className="flex items-center gap-2 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
                  <Trophy size={14} className="mb-0.5" /> Featured Masterpiece
               </div>
-              <h2 className="text-5xl md:text-6xl font-black text-white italic tracking-tighter leading-none mb-2 line-clamp-2">
+              <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none mb-2 line-clamp-2">
                  {featuredRecipe.title}
               </h2>
-              <p className="text-white/80 font-medium text-lg italic leading-relaxed mb-4">
+              <p className="text-white/80 font-medium text-lg leading-relaxed mb-4">
                  "Experience the authentic flavors crafted by {featuredRecipe.chef?.username || 'the community'}. A perfect blend of tradition and taste."
               </p>
               <div className="flex items-center gap-6 mb-6">
@@ -74,7 +74,7 @@ export default function Home() {
               </div>
               <button 
                 onClick={() => navigate(`/user/recipe/${featuredRecipe._id}`)}
-                className="bg-primary hover:bg-primary-hover text-white px-10 py-4 rounded-[1.5rem] font-black uppercase italic tracking-widest transition-all shadow-xl shadow-primary/40 active:scale-95 flex items-center gap-3"
+                className="bg-primary hover:bg-primary-hover text-white px-10 py-4 rounded-[1.5rem] font-black uppercase tracking-widest transition-all shadow-xl shadow-primary/40 active:scale-95 flex items-center gap-3"
               >
                  Master This Recipe <ArrowRight size={20} />
               </button>
@@ -87,7 +87,7 @@ export default function Home() {
       {/* Categories Horizontal Scroller */}
       <div className="flex flex-col gap-6">
         <div className="flex items-center justify-between">
-           <h3 className="text-3xl font-black text-text-primary uppercase italic tracking-tight">Explore Categories</h3>
+           <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight">Explore Categories</h3>
            <div className="h-1.5 w-24 bg-primary rounded-full"></div>
         </div>
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
@@ -111,7 +111,7 @@ export default function Home() {
       <div className="flex flex-col gap-10">
         <div className="flex justify-between items-end border-b border-borderColor pb-6">
            <div>
-              <h3 className="text-3xl font-black text-text-primary uppercase italic tracking-tight">Trending Now</h3>
+              <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight">Trending Now</h3>
               <p className="text-text-secondary font-medium mt-1">Most loved recipes this week</p>
            </div>
            <button 
@@ -144,7 +144,7 @@ export default function Home() {
              ))}
           </div>
         ) : (
-          <div className="py-24 text-center border-2 border-dashed border-borderColor rounded-[3rem] bg-bg-card text-text-secondary font-bold italic">
+          <div className="py-24 text-center border-2 border-dashed border-borderColor rounded-[3rem] bg-bg-card text-text-secondary font-bold">
             "We're currently perfecting the recipes for this collection. Check back soon!"
           </div>
         )}
@@ -156,7 +156,7 @@ export default function Home() {
         <div className="relative z-10">
            <div className="flex flex-col items-center mb-12 text-center">
               <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-4"><ChefHat size={32} /></div>
-              <h3 className="text-4xl font-black text-text-primary uppercase italic tracking-tight">Our Master Chefs</h3>
+              <h3 className="text-4xl font-black text-text-primary uppercase tracking-tight">Our Master Chefs</h3>
               <p className="text-text-secondary font-medium tracking-wide">The creative minds behind your favorite dishes</p>
            </div>
            
@@ -174,7 +174,7 @@ export default function Home() {
                       {chef.avatar ? <img src={`http://localhost:5000${chef.avatar}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" /> : <Users size={32} className="text-primary-light" />}
                       <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
-                    <h4 className="font-black text-xl text-text-primary mb-1 uppercase italic tracking-tight">{chef.username}</h4>
+                    <h4 className="font-black text-xl text-text-primary mb-1 uppercase tracking-tight">{chef.username}</h4>
                     <p className="text-[10px] font-black text-primary uppercase bg-primary-light/50 px-4 py-1.5 rounded-full tracking-tighter">Verified Creator</p>
                   </div>
                 ))

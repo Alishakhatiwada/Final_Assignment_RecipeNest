@@ -20,7 +20,7 @@
   --warning: #DD6B20;
   
   /* Typography */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', system-ui, sans-serif;
   
   /* Spacing */
   --spacing-xs: 0.25rem;

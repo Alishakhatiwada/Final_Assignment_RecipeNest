@@ -175,14 +175,14 @@ export default function ChefManagement() {
       {/* Chef Details Modal */}
       {selectedChef && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden flex flex-col relative">
             <button 
               onClick={() => setSelectedChef(null)}
-              className="absolute top-4 right-4 text-text-muted hover:text-primary transition-colors"
+              className="absolute top-4 right-4 text-text-muted hover:text-primary transition-colors z-10 bg-white/80 backdrop-blur-sm rounded-full p-1"
             >
               ✕
             </button>
-             <div className="p-8">
+             <div className="p-8 overflow-y-auto flex-1">
                <div className="flex flex-col items-center mb-6">
                   <div className="w-24 h-24 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-black text-3xl mb-4 border-4 border-orange-200 overflow-hidden">
                      {selectedChef.avatar ? <img src={`http://localhost:5000${selectedChef.avatar}`} alt="avatar" className="w-full h-full object-cover" /> : (selectedChef.fullName || selectedChef.username)[0].toUpperCase()}
@@ -233,7 +233,7 @@ export default function ChefManagement() {
                   )}
                </div>
             </div>
-            <div className="bg-bg-main p-4 flex justify-end gap-3">
+            <div className="bg-bg-main p-4 flex justify-end gap-3 border-t border-borderColor shrink-0">
                <button 
                  onClick={() => {
                     toggleStatus(selectedChef._id, selectedChef.status);

@@ -4,7 +4,8 @@ import { Save, LogOut } from 'lucide-react';
 
 export default function Settings() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('admin@recipenest.com');
+  // Administrative email is constant as requested
+  const ADMIN_EMAIL = 'admin@gmail.com';
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -13,8 +14,10 @@ export default function Settings() {
       alert("Passwords do not match!");
       return;
     }
-    // Simulate API call
-    alert("Profile Updated Successfully!");
+    // Simulate API call for password update
+    alert("Administrative Password Updated Successfully!");
+    setPassword('');
+    setConfirmPassword('');
   };
 
   return (
@@ -32,12 +35,13 @@ export default function Settings() {
              
              <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
-                   <label className="text-sm font-semibold text-text-primary">Admin Email</label>
+                   <label className="text-sm font-semibold text-text-primary">Admin Email (Static)</label>
                    <input 
                      type="email" 
-                     value={email} 
-                     onChange={(e) => setEmail(e.target.value)}
-                     className="p-3 bg-bg-main border border-borderColor rounded-lg focus:outline-none focus:border-primary" 
+                     value={ADMIN_EMAIL} 
+                     readOnly
+                     className="p-3 bg-bg-main border border-borderColor rounded-lg focus:outline-none text-text-muted cursor-not-allowed" 
+                     title="Administrative email cannot be changed"
                    />
                 </div>
                 <div className="flex flex-col gap-2">

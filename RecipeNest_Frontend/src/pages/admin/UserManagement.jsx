@@ -192,14 +192,14 @@ export default function UserManagement() {
       {/* User Details Modal */}
       {selectedUser && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden flex flex-col relative">
             <button 
               onClick={() => setSelectedUser(null)}
-              className="absolute top-4 right-4 text-text-muted hover:text-primary transition-colors"
+              className="absolute top-4 right-4 text-text-muted hover:text-primary transition-colors z-10 bg-white/80 backdrop-blur-sm rounded-full p-1"
             >
               ✕
             </button>
-            <div className="p-8">
+            <div className="p-8 overflow-y-auto flex-1">
                <div className="flex flex-col items-center mb-6">
                   <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary font-black text-2xl mb-4 border-2 border-primary/20 overflow-hidden">
                      {selectedUser.avatar ? <img src={`http://localhost:5000${selectedUser.avatar}`} alt="avatar" className="w-full h-full object-cover" /> : (selectedUser.fullName || selectedUser.username)[0].toUpperCase()}
@@ -242,7 +242,7 @@ export default function UserManagement() {
                   )}
                </div>
             </div>
-            <div className="bg-bg-main p-4 flex justify-end">
+            <div className="bg-bg-main p-4 flex justify-end border-t border-borderColor shrink-0">
                <button 
                  onClick={() => setSelectedUser(null)}
                  className="px-6 py-2 bg-white border border-borderColor shadow-sm rounded-xl font-bold text-text-secondary hover:text-text-primary hover:border-text-muted transition-all"

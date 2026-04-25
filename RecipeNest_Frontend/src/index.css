@@ -21,6 +21,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ensure all form elements inherit the font family */
+button, 
+input, 
+textarea, 
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -32,7 +42,6 @@ ul {
 
 button {
   cursor: pointer;
-  font-family: inherit;
   border: none;
   outline: none;
 }
