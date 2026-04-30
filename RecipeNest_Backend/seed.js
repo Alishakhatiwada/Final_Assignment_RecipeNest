@@ -22,14 +22,14 @@ const seedAdmin = async () => {
       
 
       await admin.save();
-      console.log('✅ Admin user created successfully');
+      console.log('Admin user created successfully');
     } else {
-      console.log('ℹ️ Admin user already exists');
+      console.log('Admin user already exists');
     }
 
     process.exit();
   } catch (err) {
-    console.error('❌ Error seeding admin:', err);
+    console.error('Error seeding admin:', err);
     process.exit(1);
   }
 };
